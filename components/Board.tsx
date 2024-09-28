@@ -60,7 +60,7 @@ const Board = ({ winner, setWinner, restart }:{ winner: String | null, setWinner
 
   const ComputerPlay = ()=>{
     
-    let depth = boardGridRowCols > 5 ? 3 : 7
+    let depth = boardGridRowCols > 5 ? 4 : 8
     let alpha = -999
     const beta = 999
 
@@ -112,7 +112,7 @@ const Board = ({ winner, setWinner, restart }:{ winner: String | null, setWinner
     <motion.div
       initial={false}
       animate={winner == null ? "show" : "hidden"}
-    >
+      >
 
       <motion.div
       variants={variants}

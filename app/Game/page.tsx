@@ -1,22 +1,28 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Board from "@/components/Board"
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {  useRouter } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 
 function page() {
   const [winner, setWinner] = useState<String | null>(null)
   const [restart, setRestart] = useState<Boolean>(false)
-  
+  const params = useSearchParams()
+
+  if (params.get("selected") === null ){
+    return (
+        <div>Nothing to display</div>
+    )
+  }
 
   return (
     <div className='flex flex-col items-center' >
       <Board winner={winner} setWinner={setWinner} restart={restart}  />
       <GameOver winner={winner} setRestart={setRestart} />
     </div>
-  )
+)
 }
 
 const GameOver = ({winner, setRestart}: {winner : String | null, setRestart: any})=>{
@@ -28,7 +34,6 @@ const GameOver = ({winner, setRestart}: {winner : String | null, setRestart: any
     hidden:{scaleY: 0}
   }
 
-  
   return(
     <motion.div variants={variants} initial={{ scaleY:0 }} animate={winner == null ? "hidden" : "show" }
     

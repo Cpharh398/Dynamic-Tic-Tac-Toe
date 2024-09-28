@@ -24,8 +24,7 @@ const GridBoard = ({ setGridSize }:{setGridSize: any} )=>{
     setBoardGridRowCols(gridRowCol)
     Update()
     
-
-  }, [])
+  })
 
 
 
@@ -70,8 +69,8 @@ const GridBoard = ({ setGridSize }:{setGridSize: any} )=>{
       <div className={`bg-slate-300/65 rounded-lg transition-all  relative mb-11 grid  gap-2 p-2`} 
       style={{ height:`${height}rem`, width:`${height + 2}rem`, gridTemplateColumns:`repeat(${gridRowCol}, minmax(0, 1fr))`, gridTemplateRows:`repeat(${gridRowCol}, minmax(0, 1fr))` }} >
           {
-              Array(squareNumber).fill(null).map(()=>
-                <div className='bg-[#ffe8f0] w-full h-full rounded-md transition-all' />
+              Array(squareNumber).fill(null).map((item, index)=>
+                <div key={index}  className='bg-[#ffe8f0] w-full h-full rounded-md transition-all' />
               )
           }
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Selection from './Selection'
 import Grid from './Grid'
 
-function page() {
+function Page() {
   const [isVisible, setIsVisible] = useState<Boolean>(false)
   const [playerPiece, setplayerPiece] = useState<string | null>(null)
 
@@ -17,4 +17,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
